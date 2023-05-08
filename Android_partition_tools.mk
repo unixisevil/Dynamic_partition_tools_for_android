@@ -18,8 +18,13 @@ LOCAL_CFLAGS := \
 	-Werror \
 	-Wno-unused \
 	-Wno-unused-parameter \
-	-DARMV8_OS_LINUX \
-	-DADLER32_SIMD_NEON
+	-DX86_NOT_WINDOWS \
+	-DINFLATE_CHUNK_READ_64LE  \
+	-DADLER32_SIMD_SSSE3  \
+	-mpclmul   \
+	-DCRC32_SIMD_SSE42_PCLMUL
+	#-DARMV8_OS_LINUX \
+	#-DADLER32_SIMD_NEON
 
 LOCAL_SRC_FILES += \
 	src/external/zlib/adler32.c \
@@ -38,7 +43,8 @@ LOCAL_SRC_FILES += \
 	src/external/zlib/trees.c \
  	src/external/zlib/uncompr.c \
 	src/external/zlib/zutil.c \
-	\
+	src/external/zlib/crc_folding.c \
+	src/external/zlib/fill_window_sse.c \
 	src/external/zlib/adler32_simd.c \
 	src/external/zlib/crc32_simd.c
 

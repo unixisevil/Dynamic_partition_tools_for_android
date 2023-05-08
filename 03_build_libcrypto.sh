@@ -4,7 +4,7 @@ ROOT_DIR=`pwd`/src/boringssl
 DIST_DIR=$ROOT_DIR/dist
 BUILD_DIR=$ROOT_DIR/build
 
-ABIS="armeabi-v7a arm64-v8a"
+ABIS="x86_64"
 
 export ANDROID_NDK=$(pwd)/android-ndk-r24
 
